@@ -10,7 +10,7 @@ from fastapi.responses import JSONResponse
 
 userrouter = APIRouter()
 
-@userrouter.get("/home",responses_model = list[User])
+@userrouter.get("/home",response_model = list[User])
 
 async def getuser(userName: str):
      user = user_list(list(User_collection.find({"userName":userName} )))
