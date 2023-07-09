@@ -13,3 +13,4 @@ def queriedSuccesfully(result, msg:str = None):
             "message":msg,
             "statusCode" :"OK"
         }
+
