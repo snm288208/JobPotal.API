@@ -11,7 +11,7 @@ from fastapi.responses import JSONResponse
 
 userrouter = APIRouter()
 
-@userrouter.get("/home",response_model = ApiResponse[list(UserResponse)])
+@userrouter.get("/home",response_model = ApiResponse[list[UserResponse]])
 def getuser(userName: str):
      user = user_list(User_collection.find({"userName":userName}))
      response = ApiResponse[list[UserResponse]](Result= user, StatsCode='200', Message= "QueriedSucessFully")
