@@ -15,6 +15,7 @@ userrouter = APIRouter()
 def getuser(userName: str):
      user = user_list(User_collection.find({"userName":userName}))
      response = ApiResponse[list[UserResponse]](Result= user, StatsCode='200', Message= "QueriedSucessFully")
+     print (response)
      return response
 
 @userrouter.post("/addUser")
