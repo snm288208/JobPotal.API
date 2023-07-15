@@ -1,7 +1,7 @@
 from typing import List, Optional
 from fastapi import APIRouter
 from db.models.user import User
-from db.schema.userschema import user_list
+from db.schema.userschema import UserResponse, user_list
 from db.schema.userschema import user_indvidual
 from extensionMethods.ApiReponse import ApiResponse, queriedSuccesfully
 from config.monogodb import User_collection
@@ -10,9 +10,9 @@ from fastapi.responses import JSONResponse
 
 userrouter = APIRouter()
 
-@userrouter.get("/home",response_model = ApiResponse[User])
+@userrouter.get("/home",response_model = ApiResponse[UserResponse])
 async def getuser(userName: str):
-     user = user_list(list(User_collection.find({"userName":userName} )))
+     user = user_list(User_collection.find({"userName":userName}))
      return JSONResponse(user)
 
 @userrouter.post("/addUser")
