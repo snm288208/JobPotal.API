@@ -1,7 +1,8 @@
 from typing import Optional
 from typing import Generic
 from typing import TypeVar
-from pydantic.generics import GenericModel
+
+from pydantic import BaseModel
 
 T = TypeVar("T")
 def queriedSuccesfully(result, msg:str = None):
@@ -18,7 +19,7 @@ def queriedSuccesfully(result, msg:str = None):
             "statusCode" :"OK"
         }
 
-class ApiResponse(GenericModel, Generic[T]):
+class ApiResponse(BaseModel,Generic[T]):
     Result : T
     StatsCode: int
     Message : str
