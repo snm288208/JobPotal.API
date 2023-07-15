@@ -1,8 +1,8 @@
 from pydantic import BaseModel
-from pyrsistent import optional
+from typing import Optional
 
 class User(BaseModel) :
-    id : optional[str]
+    id : Optional[str]
     name : str
     userName : str
     password : str
