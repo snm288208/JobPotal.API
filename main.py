@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from pymongo.mongo_client import MongoClient
-from db import db
 from routes.user import userrouter
 
 app =  FastAPI()
