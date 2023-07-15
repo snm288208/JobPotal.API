@@ -22,9 +22,9 @@ def adduser(user:User):
      checkUser = user_list(User_collection.find({"userName":user.userName} ))
      if checkUser != None :
           User_collection.insert_one(dict(user))
-          return ApiResponse[List[UserResponse]](Result= True, StatsCode='200', Message= "QueriedSucessFully")
+          return ApiResponse[str](Result= True, StatsCode='200', Message= "QueriedSucessFully")
      else :
-          return queriedSuccesfully("False", None)
+          return ApiResponse[str](Result= False, StatsCode='200', Message= "Already Exists")
 
 
 
