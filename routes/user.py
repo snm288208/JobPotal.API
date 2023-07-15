@@ -18,12 +18,12 @@ def getuser(userName: str):
      print (response)
      return response
 
-@userrouter.post("/addUser")
+@userrouter.post("/addUser", response_model = ApiResponse[bool])
 def adduser(user:User):
      checkUser = user_list(User_collection.find({"userName":user.userName} ))
      if checkUser != None :
           User_collection.insert_one(dict(user))
-          return JSONResponse(queriedSuccesfully("True", None))
+          return ApiResponse[List[UserResponse]](Result= True, StatsCode='200', Message= "QueriedSucessFully")
      else :
           return queriedSuccesfully("False", None)
 
