@@ -1,14 +1,4 @@
-from typing import List, Optional
-from fastapi import APIRouter
-from db.models.user import User
-from db.schema.userschema import UserResponse, user_list
-from db.schema.userschema import user_indvidual
-from extensionMethods.ApiReponse import ApiResponse, queriedSuccesfully
-from config.monogodb import User_collection
-from bson import objectid
-from fastapi.responses import JSONResponse
 
-userrouter = APIRouter()
 from typing import List, Optional
 from fastapi import APIRouter
 from db.models.user import User
